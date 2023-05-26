@@ -15,29 +15,3 @@ Para Conectarce a PGADMIN
 ingresamos a http://localhost/
 usuario :perricornios@gmail.com
 password : perricornios_pfinal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Cada vez que se hace un cambio se debe reconstruir la imagen
-docker build -t proyecto-final .
-
-para lanzar la imagen
-docker run -d -p 5432:5432 --name proyecto_final -e POSTGRES_PASSWORD=root -v $PWD/pgdata:/var/lib/postgresql/data postgres
