@@ -19,7 +19,7 @@ class Masaje:
         print('\n----OPCIONES DE MENU----\n')
         try:
             opciones = {
-                    1: "Masaje relajante",
+                    1: "Masaje convencional",
                     2: "Masaje descontracturante",
                     3: "Masaje terapéutico",
             }
@@ -36,7 +36,7 @@ class Masaje:
                 self.masaje = opciones[eleccion]
                 print(f"\nElegiste ~ {self.masaje} ~")
             else:
-                print("\nOpción no válida. Volvé a intentarlo nuevamente.")
+                print(f"\nOpción no válida. ({eleccion}) Volvé a intentarlo nuevamente.")
 
         except Exception as e:
                 print(f"Se produjo un error: {str(e)}")
