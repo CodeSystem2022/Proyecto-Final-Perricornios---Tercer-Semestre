@@ -17,25 +17,29 @@ class Masaje:
     #funcion: muestra las opciones de masajes
     def masajes(self):
         print('\n----OPCIONES DE MENU----\n')
-        opciones = {
-                1: "Masaje relajante",
-                2: "Masaje descontracturante",
-                3: "Masaje terapéutico",
-        }
+        try:
+            opciones = {
+                    1: "Masaje relajante",
+                    2: "Masaje descontracturante",
+                    3: "Masaje terapéutico",
+            }
 
-        print("Elegí una opción: ")
-        for key, value in opciones.items():
-            print(f"{key}. {value}")
+            print("Elegí una opción: ")
+            for key, value in opciones.items():
+                print(f"{key}. {value}")
 
-        eleccion = int(input("\nIngresá el número del masaje elegido: "))
+            eleccion = int(input("\nIngresá el número del masaje elegido: "))
 
-        # condicional- estructra if, se verifica si la elección es válida
-        # y seguarda el nombre del masaje en el atributo que declaramos como vacío
-        if eleccion in opciones:
-            self.masaje = opciones[eleccion]
-            print(f"\nElegiste ~ {self.masaje} ~")
-        else:
-            print("\nOpción no válida. Volvé a intentarlo nuevamente.")
+            # condicional- estructra if, se verifica si la elección es válida
+            # y seguarda el nombre del masaje en el atributo que declaramos como vacío
+            if eleccion in opciones:
+                self.masaje = opciones[eleccion]
+                print(f"\nElegiste ~ {self.masaje} ~")
+            else:
+                print("\nOpción no válida. Volvé a intentarlo nuevamente.")
+
+        except Exception as e:
+                print(f"Se produjo un error: {str(e)}")
 
 #se instancia un objeto
 masaje = Masaje()
