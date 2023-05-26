@@ -2,6 +2,7 @@
 Mismo proyecto de tienda de estética que teníamos en pSeInt
 
 ## Desde una terminal ubicada en el directorio del proyecto
+- Importante : No estar ejecutando pgadmin ni postgresql al momento de lanzar el contenedor
 
 ### Para lanzar el contenedor
 - docker-compose up
