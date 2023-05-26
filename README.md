@@ -12,7 +12,7 @@ docker-compose down
 # Para recrearlo (Solo si tocamos configuracion de docker-composer.yml)
 docker-composer up -d
 
-# Para Conectarce a PGADMIN
+# Para Conectarse a PGADMIN
 ingresamos a http://localhost/
 usuario :perricornios@gmail.com
 password : perricornios_pfinal
