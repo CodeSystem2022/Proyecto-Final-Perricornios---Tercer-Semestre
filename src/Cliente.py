@@ -14,14 +14,14 @@ que solicite al cliente su nombre, apellido y género,
 concatene nombre y apellido con un espacio de por medio,
 y asigne sus valores a sus respectivas variables.
 """
-import Masaje #se importa la clase Masaje
+import Masaje #se importa la clase
 
 class Cliente:
 
     def __init__(self, nombre, apellido, genero, masaje): #constructor
-        self.nombre = nombre
-        self.apellido = apellido
-        self.genero = genero
+        self.nombre = input("\nIngresá tu nombre: ")
+        self.apellido = input("Ingresá tu apellido: ")
+        self.genero = input("Ingresá tu género: ")
         self.masaje = Masaje
         
     def set_nombre(self, nombre):
@@ -42,21 +42,13 @@ class Cliente:
     def get_genero(self):
         return self.genero
 
-    def set_masaje(self, masaje):
-        self.masaje = masaje
-
-    def get_masaje(self):
-        return self.masaje
 
     def clienteNuevo(self):
-        nombre = input("\nIngresá tu nombre: ")
-        apellido = input("Ingresá tu apellido: ")
-        genero = input("Ingresá tu género: ")
-    
+        #se muestran los datos
         print('\nDatos ingresados: \n----------------------------')
-        print("Nombre: ", nombre)
-        print("Apellido: ", apellido)
-        print("Género: ", genero)
+        print("Nombre: ", cliente.get_nombre())
+        print("Apellido: ", cliente.get_apellido())
+        print("Género: ", cliente.get_genero())
         print("----------------------------")
     
 
