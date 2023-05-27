@@ -16,4 +16,9 @@ Mismo proyecto de tienda de estética que teníamos en pSeInt
 ### Para Conectarse a PGADMIN
 - ingresamos a http://localhost/
 - usuario :perricornios@gmail.com
-- password : perricornios_pfinal
+- password : admin
+
+### Para crear conexion a base de datos desde PGADMIN
+- HOST : postgres
+- Usuario : perricornios
+- Password : perricornios_pfinal
