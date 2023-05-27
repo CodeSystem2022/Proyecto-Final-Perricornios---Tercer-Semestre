@@ -19,38 +19,46 @@ import Masaje #se importa la clase
 class Cliente:
 
     def __init__(self, nombre, apellido, genero, masaje): #constructor
-        self.nombre = input("\nIngresá tu nombre: ")
-        self.apellido = input("Ingresá tu apellido: ")
-        self.genero = input("Ingresá tu género: ")
-        self.masaje = Masaje
+        self._nombre = input("\nIngresá tu nombre: ")
+        self._apellido = input("Ingresá tu apellido: ")
+        self._genero = input("Ingresá tu género: ")
+        self._masaje = Masaje
         
-    def set_nombre(self, nombre):
-        self.nombre = nombre
-
-    def get_nombre(self):
-        return self.nombre
+    @property
+    def nombre(self):
+        return self._nombre
     
-    def set_apellido(self, apellido):
-        self.apellido = apellido
+    @nombre.setter
+    def nombre(self, nombre):
+        self._nombre = nombre
 
-    def get_apellido(self):
-        return self.apellido
+    @property
+    def apellido(self):
+        return self._apellido
 
-    def set_genero(self, genero):
-        self.genero = genero
+    
+    @apellido.setter
+    def apellido(self, apellido):
+        self._apellido = apellido
 
-    def get_genero(self):
-        return self.genero
+    @property
+    def genero(self):
+        return self._genero
+    
+    @genero.setter
+    def genero(self, genero):
+        self._genero = genero
 
 
     def clienteNuevo(self):
         #se muestran los datos
-        print('\nDatos ingresados: \n----------------------------')
-        print("Nombre: ", cliente.get_nombre())
-        print("Apellido: ", cliente.get_apellido())
-        print("Género: ", cliente.get_genero())
+        print('')
+        print('Datos ingresados'.center(28,'-'))
+        print("Nombre: ", cliente.nombre)
+        print("Apellido: ", cliente.apellido)
+        print("Género: ", cliente.genero)
         print("----------------------------")
-    
+            
 
 # se instancia un objeto de la clase Cliente
 cliente = Cliente("", "", "", "")
