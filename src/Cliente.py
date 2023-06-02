@@ -21,7 +21,7 @@ class Cliente:
     def __init__(self, nombre, apellido, genero, masaje): #constructor
         self._nombre = input("\nIngresá tu nombre: ")
         self._apellido = input("Ingresá tu apellido: ")
-        self._genero = input("Ingresá tu género: ")
+        self._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\nIngresá un caracter: ")
         self._masaje = Masaje
         
     @property
@@ -59,9 +59,27 @@ class Cliente:
         print("Género: ", cliente.genero)
         print("----------------------------")
             
+    def saludar(cliente):
+        print(f'\n¡¡Hola, {cliente._nombre}!!')
+
+        hombre = 'M'
+        mujer = 'F'
+        otro = 'O'
+
+
+        if (cliente._genero) == hombre:
+             print('Bienvenido a nuestro centro de belleza y spa')
+        elif (cliente._genero) == mujer:
+             print('Bienvenida a nuestro centro de belleza y spa')
+        elif cliente._genero == otro:
+             print('Bienvenide a nuestro centro de belleza y spa')
+        elif cliente._genero != hombre or cliente._genero != mujer or cliente._genero != otro:
+            #llama de nuevo a la función
+            print('Opción no valida intentalo de nuevo')
+
 
 # se instancia un objeto de la clase Cliente
 cliente = Cliente("", "", "", "")
 #se llama al método para que se instancien los atributos
-cliente.clienteNuevo()
-
+cliente.saludar() #primero se le dá la bienvenida
+cliente.clienteNuevo() #después se le muestra los datos
