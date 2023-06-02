@@ -1,6 +1,8 @@
 # Proyecto-Final-Perricornios---Tercer-Semestre
 Mismo proyecto de tienda de estética que teníamos en pSeInt
 
+![perricorniospseint](https://github.com/CodeSystem2022/Proyecto-Final-Perricornios---Tercer-Semestre/assets/92758405/58da16cb-b222-4129-a2b8-ca3050f19592)
+
 ## Desde una terminal ubicada en el directorio del proyecto
 - Importante : No estar ejecutando pgadmin ni postgresql al momento de lanzar el contenedor
 
