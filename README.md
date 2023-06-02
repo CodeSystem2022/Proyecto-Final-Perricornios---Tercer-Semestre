@@ -17,4 +17,11 @@ Mismo proyecto de tienda de estética que teníamos en pSeInt
 ### Para Conectarse a PGADMIN
 - ingresamos a http://localhost/
 - usuario :perricornios@gmail.com
+- password : admin
+
+### Para conectarse desde PGADMIN a Postgresql
+- desde pgadmin en http://localhost/
+- creamos una nueva conexion
+- host : postgres
+- usuario : perricornios
 - password : perricornios_pfinal
