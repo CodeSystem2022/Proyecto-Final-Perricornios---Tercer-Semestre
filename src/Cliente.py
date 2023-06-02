@@ -21,7 +21,7 @@ class Cliente:
     def __init__(self, nombre, apellido, genero, masaje): #constructor
         self._nombre = input("\nIngresá tu nombre: ")
         self._apellido = input("Ingresá tu apellido: ")
-        self._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\nIngresá un caracter: ")
+        self._genero = None #se lo instancia en None para validarla después
         self._masaje = Masaje
         
     @property
@@ -58,26 +58,41 @@ class Cliente:
         print("Apellido: ", cliente.apellido)
         print("Género: ", cliente.genero)
         print("----------------------------")
-            
+           
     def saludar(cliente):
-        print(f'\n¡¡Hola, {cliente._nombre}!!')
+        print(f'\n-----------Hola, {cliente._nombre}-----------')
 
-        hombre = 'M'
-        mujer = 'F'
-        otro = 'O'
+        opcion_valida = False #bandera, flag
+
+        while not opcion_valida:
+            cliente._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\nIngresá un caracter: ")
+
+            hombre = 'M'
+            mujer = 'F'
+            otro = 'O'
+
+            if (cliente._genero) == hombre:
+                print('\n***********************************************************')
+                print(f'¡Hola {cliente._nombre} Bienvenido a nuestro centro de belleza y spa!')
+                opcion_valida = True
+            elif (cliente._genero) == mujer:
+                print('\n***********************************************************')
+                print(f'¡Hola {cliente._nombre} Bienvenida a nuestro centro de belleza y spa!')
+                opcion_valida = True
+            elif cliente._genero == otro:
+                print('\n***********************************************************')
+                print(f'¡Hola {cliente._nombre} Bienvenide a nuestro centro de belleza y spa!')
+                opcion_valida = True
+            elif cliente._genero != hombre or cliente._genero != mujer or cliente._genero != otro:
+                #llama de nuevo a la función
+                print('Opción no valida intentalo de nuevo')
+                print(''.center(32,'-'))
+        print('**'.center(59,'*'))
 
 
-        if (cliente._genero) == hombre:
-             print('Bienvenido a nuestro centro de belleza y spa')
-        elif (cliente._genero) == mujer:
-             print('Bienvenida a nuestro centro de belleza y spa')
-        elif cliente._genero == otro:
-             print('Bienvenide a nuestro centro de belleza y spa')
-        elif cliente._genero != hombre or cliente._genero != mujer or cliente._genero != otro:
-            #llama de nuevo a la función
-            print('Opción no valida intentalo de nuevo')
-
-
+    """
+    CargarMasaje : deberá contar con un método propio que ejecute el método de la clase Masaje, masajes().
+    """
 # se instancia un objeto de la clase Cliente
 cliente = Cliente("", "", "", "")
 #se llama al método para que se instancien los atributos
