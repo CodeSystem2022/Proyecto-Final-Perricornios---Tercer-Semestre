@@ -54,9 +54,9 @@ class Cliente:
 
     def clienteNuevo(self):
         #Solicito los datos
-        nombre = input(" Ingresa tu nombre")
-        apellido = input("Ingresa tu apellido")
-        genero = input("Ingresa tu genero M -Mujer, H -Hombre, O -Otros")
+        nombre = input(" Ingresa tu nombre : ")
+        apellido = input("Ingresa tu apellido : ")
+        genero = input("Ingresa tu genero M -Mujer, H -Hombre, O -Otros : ")
         self._nombre = nombre
         self._apellido = apellido
         self._genero = genero
@@ -150,7 +150,8 @@ class Cliente:
 
 # se instancia un objeto de la clase Cliente
 cliente = Cliente("", "", "", "")
-#se llama al método para que se instancien los atributos
-cliente.saludar() #primero se le dá la bienvenida
+cliente.buscarCliente()
 cliente.clienteNuevo()#después se le muestra los datos
+cliente.saludar()
+cliente.buscarCliente()
 
