@@ -42,6 +42,6 @@ class Masaje:
                 print(f"Se produjo un error: {str(e)}")
 
 #se instancia un objeto
-masaje = Masaje()
+#masaje = Masaje()
 #se llama al método
-masaje.masajes()
+#masaje.masajes()
