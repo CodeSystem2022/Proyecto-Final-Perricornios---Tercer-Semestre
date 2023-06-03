@@ -17,29 +17,37 @@ class Masaje:
     #funcion: muestra las opciones de masajes
     def masajes(self):
         print('\n----OPCIONES DE MENU----\n')
-        try:
-            opciones = {
-                    1: "Masaje convencional",
-                    2: "Masaje descontracturante",
-                    3: "Masaje terapéutico",
+        
+        opciones = {
+                1: "Masaje convencional",
+                2: "Masaje descontracturante",
+                3: "Masaje terapéutico",
             }
 
-            print("Elegí una opción: ")
-            for key, value in opciones.items():
-                print(f"{key}. {value}")
+        #para validar se usa un bucle while true
+        #se va a ejecutar hasta que se ingrese una opción valida
+        while True:
 
-            eleccion = int(input("\nIngresá el número del masaje elegido: "))
+            try:
+                print("Elegí una opción: ")
+                for key, value in opciones.items():
+                    print(f"{key}. {value}")
 
-            # condicional- estructra if, se verifica si la elección es válida
-            # y seguarda el nombre del masaje en el atributo que declaramos como vacío
-            if eleccion in opciones:
-                self.masaje = opciones[eleccion]
-                print(f"\nElegiste ~ {self.masaje} ~")
-            else:
-                print(f"\nOpción no válida. ({eleccion}) Volvé a intentarlo nuevamente.")
+                eleccion = int(input("\nIngresá el número del masaje elegido: "))
 
-        except Exception as e:
-                print(f"Se produjo un error: {str(e)}")
+                # condicional- estructra if, se verifica si la elección es válida
+                # y seguarda el nombre del masaje en el atributo que declaramos como vacío
+                if eleccion in opciones:
+                    self.masaje = opciones[eleccion]
+                    print(f"\nElegiste ~ {self.masaje} ~")
+                    break
+
+                else:
+                    print(f"\nOpción no válida. ({eleccion}) Volvé a intentarlo nuevamente.\n")
+
+            except Exception as e:
+                    print(f"Se produjo un error: {str(e)} <NO PARECE SER UNA OPCIÓN VALIDA>")
+                    print('Por favor, intentalo nuevamente..\n')
 
 #se instancia un objeto
 #masaje = Masaje()
