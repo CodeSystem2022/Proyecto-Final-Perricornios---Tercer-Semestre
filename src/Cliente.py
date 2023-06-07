@@ -14,15 +14,17 @@ que solicite al cliente su nombre, apellido y género,
 concatene nombre y apellido con un espacio de por medio,
 y asigne sus valores a sus respectivas variables.
 """
+import psycopg2
 import Masaje #se importa la clase Masaje
 
 class Cliente:
 
     def __init__(self, nombre, apellido, genero, masaje): #constructor
-        self._nombre = input("\nIngresá tu nombre: ")
-        self._apellido = input("Ingresá tu apellido: ")
+        #Los atributos tienen que ir vacios para que puedan ser llenados al lanzar la funcion clienteNuevo
+        self._nombre = None
+        self._apellido = None
         self._genero = None #se lo instancia en None para validarla después
-        self._masaje = Masaje
+        self._masaje = None
         
     @property
     def nombre(self):
@@ -50,6 +52,7 @@ class Cliente:
         self._genero = genero
 
 
+
     def validar(self):
         while not cliente.nombre.strip():
             print('\n-------------------------\nNombre no puede estar vacío.\nIntentalo nuevamente...\n-------------------------')
@@ -62,6 +65,7 @@ class Cliente:
         
 
     def clienteNuevo(cliente):
+
         #se muestran los datos
         print('')
         print('Datos ingresados'.center(28,'-'))
@@ -78,6 +82,7 @@ class Cliente:
 
         while not opcion_valida:
             cliente._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\n----------------------------------\nIngresá un caracter: ")
+
             hombre = 'M'
             mujer = 'F'
             otro = 'O'
@@ -104,11 +109,54 @@ class Cliente:
     """
     CargarMasaje : deberá contar con un método propio que ejecute el método de la clase Masaje, masajes().
     """
+
+    def buscarCliente(self):
+        
+        #Solicitamos el ID del cliente
+        id = input("\nIngresá el ID de Cliente a buscar: ")
+
+        # Establecer conexión con la base de datos
+        conn = psycopg2.connect(
+            user="perricornios",
+            password="perricornios_pfinal",
+            host="localhost",
+            port="5432",
+            database="tienda",
+
+        )
+        
+        # Crear un cursor para ejecutar consultas
+        cursor = conn.cursor()
+        
+        # Realizar la consulta para buscar el cliente por ID
+        cursor.execute("SELECT * FROM tienda.clientes WHERE ID=%s", (id,))
+        
+        # Obtener los resultados de la consulta
+        resultado = cursor.fetchone()
+        
+        if resultado:
+            # Asignar los datos del cliente encontrado a variables
+            self._nombre = resultado[1]
+            self._genero = resultado[2]
+            self._masaje = resultado[3]
+            
+            # Mostrar los datos del cliente encontrado
+            print("Los datos del Cliente ID ", resultado[0])
+            print("Nombre: ", self._nombre)
+            print("Genero: ", self._genero)
+            print("Masaje: ", self._masaje)
+
+        else:
+            print("Cliente no encontrado")
+        
+        # Cerrar la conexión con la base de datos
+        conn.close()
     
 
 # se instancia un objeto de la clase Cliente
 cliente = Cliente("", "", "", "")
-#se llama al método para que se instancien los atributos
-cliente.saludar() #primero se le dá la bienvenida
+cliente.buscarCliente()
 cliente.clienteNuevo()#después se le muestra los datos
+cliente.saludar()
+cliente.buscarCliente()
 
