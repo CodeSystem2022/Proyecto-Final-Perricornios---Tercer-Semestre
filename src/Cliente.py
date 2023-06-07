@@ -50,38 +50,49 @@ class Cliente:
         self._genero = genero
 
 
-    def clienteNuevo(self):
+    def validar(self):
+        while not cliente.nombre.strip():
+            print('\n-------------------------\nNombre no puede estar vacío.\nIntentalo nuevamente...\n-------------------------')
+            cliente._nombre = input("\nIngresá tu nombre: ")
+            
+        while not cliente.apellido.strip():
+            print('\n-------------------------\nApellido no puede estar vacío.\nIntentalo nuevamente...\n-------------------------')
+            cliente._apellido = input("\nIngresá tu apellido: ")
+            
+        
+
+    def clienteNuevo(cliente):
         #se muestran los datos
         print('')
         print('Datos ingresados'.center(28,'-'))
-        print("Nombre: ", cliente.nombre)
-        print("Apellido: ", cliente.apellido)
+        print("Nombre: ", cliente._nombre)
+        print("Apellido: ", cliente._apellido)
         print("Género: ", cliente.genero)
         print("----------------------------")
 
     def saludar(cliente):
+        cliente.validar()
         print(f'\n-----------Hola, {cliente._nombre}-----------')
 
         opcion_valida = False #bandera, flag
 
         while not opcion_valida:
-            cliente._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\nIngresá un caracter: ")
-
+            cliente._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\n----------------------------------\nIngresá un caracter: ")
             hombre = 'M'
             mujer = 'F'
             otro = 'O'
 
             if (cliente._genero) == hombre:
                 print('\n***********************************************************')
-                print(f'¡Hola {cliente._nombre} Bienvenido a nuestro centro de belleza y spa!')
+                print(f'¡Hola {cliente._nombre}, Bienvenido a nuestro centro de belleza y spa!')
                 opcion_valida = True
             elif (cliente._genero) == mujer:
                 print('\n***********************************************************')
-                print(f'¡Hola {cliente._nombre} Bienvenida a nuestro centro de belleza y spa!')
+                print(f'¡Hola {cliente._nombre}, Bienvenida a nuestro centro de belleza y spa!')
                 opcion_valida = True
             elif cliente._genero == otro:
                 print('\n***********************************************************')
-                print(f'¡Hola {cliente._nombre} Bienvenide a nuestro centro de belleza y spa!')
+                print(f'¡Hola {cliente._nombre}, Bienvenide a nuestro centro de belleza y spa!')
                 opcion_valida = True
             elif cliente._genero != hombre or cliente._genero != mujer or cliente._genero != otro:
                 #llama de nuevo a la función
