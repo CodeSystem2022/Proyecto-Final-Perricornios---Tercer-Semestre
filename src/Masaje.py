@@ -50,6 +50,6 @@ class Masaje:
                     print('Por favor, intentalo nuevamente..\n')
 
 #se instancia un objeto
-masaje = Masaje()
+#masaje = Masaje()
 #se llama al método
-masaje.masajes()
+#masaje.masajes()

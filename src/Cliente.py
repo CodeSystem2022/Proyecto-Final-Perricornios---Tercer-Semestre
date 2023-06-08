@@ -20,10 +20,12 @@ import psycopg2
 class Cliente:
 
     def __init__(self, nombre, apellido, genero, masaje): #constructor
-        self._nombre = input("\nIngresá tu nombre: ")
-        self._apellido = input("Ingresá tu apellido: ")
+        #Los atributos tienen que ir vacios para que puedan ser llenados al lanzar la funcion clienteNuevo
+        self._nombre = None
+        self._apellido = None
         self._genero = None #se lo instancia en None para validarla después
-        self._masaje = Masaje
+        self._masaje = None
+        
         
     @property
     def nombre(self):
@@ -53,16 +55,23 @@ class Cliente:
 
     def validar(self):
         while not cliente.nombre.strip():
-            print('\n-------------------------\nNombre no puede estar vacío.\nIntentalo nuevamente...\n-------------------------')
+            print('\n----------------------------\nNombre no puede estar vacío.\nIntentalo nuevamente...\n----------------------------')
             cliente._nombre = input("\nIngresá tu nombre: ")
             
         while not cliente.apellido.strip():
-            print('\n-------------------------\nApellido no puede estar vacío.\nIntentalo nuevamente...\n-------------------------')
+            print('\n---------------------------\nApellido no puede estar vacío.\nIntentalo nuevamente...\n---------------------------')
             cliente._apellido = input("\nIngresá tu apellido: ")
             
-        
+    def clienteNuevo(self):
+        #Solicito los datos
+        nombre = input("Ingresa tu nombre : ")
+        apellido = input("Ingresa tu apellido : ")
+        #los establezco en su respectiva variable/atributo
+        self._nombre = nombre
+        self._apellido = apellido
 
-    def clienteNuevo(cliente):
+    
+    def mostrarDatos(cliente):
         #se muestran los datos
         print('')
         print('Datos ingresados'.center(28,'-'))
@@ -73,12 +82,12 @@ class Cliente:
 
     def saludar(cliente):
         cliente.validar()
-        print(f'\n-----------Hola, {cliente._nombre}-----------')
+        print(f'\n----------Hola, {cliente._nombre}----------')
 
         opcion_valida = False #bandera, flag
 
         while not opcion_valida:
-            cliente._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\n----------------------------------\nIngresá un caracter: ")
+            cliente._genero = input("Ingresá tu género:\n      <F> -> si sos mujer\n      <M> -> Si sos hombre\n      <O>--< Para otro género\n------------------------------\nIngresá un caracter: ")
             hombre = 'M'
             mujer = 'F'
             otro = 'O'
@@ -98,7 +107,7 @@ class Cliente:
             elif cliente._genero != hombre or cliente._genero != mujer or cliente._genero != otro:
                 #llama de nuevo a la función
                 print('Opción no valida intentalo de nuevo')
-                print(''.center(32,'-'))
+                print('-'.center(32,'-'))
         print('**'.center(59,'*'))
 
 
@@ -152,6 +161,7 @@ class Cliente:
 cliente = Cliente("", "", "", "")
 #cliente.buscarCliente()
 #se llama al método para que se instancien los atributos
-cliente.saludar() #primero se le dá la bienvenida
 cliente.clienteNuevo()#después se le muestra los datos
+cliente.saludar() #primero se le dá la bienvenida
 #cliente.buscarCliente()
+cliente.mostrarDatos()
