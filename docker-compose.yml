@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports: 
+      - "5432:5432"
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=perricornios
+      - POSTGRES_PASSWORD=perricornios_pfinal
+      - POSTGRES_DB=tienda
+    volumes:
+      -  ./pgdata/postgres:/var/lib/postgresql/data
+    
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=perricornios@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+      
+volumes:
+  postgres-data:
