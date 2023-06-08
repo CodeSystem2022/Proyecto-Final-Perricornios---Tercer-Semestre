@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c124ea4-e4f2-4b34-aca3-e1e0d7d2cd25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgdata/postgres/base/1/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/pgdata/postgres/base/1/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgdata/postgres/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/pgdata/postgres/base/16384/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgdata/postgres/base/5/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/pgdata/postgres/base/5/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgdata/postgres/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/pgdata/postgres/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgdata/postgres/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/pgdata/postgres/global/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgdata/postgres/pg_stat/pgstat.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgdata/postgres/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/pgdata/postgres/pg_wal/000000010000000000000001" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
