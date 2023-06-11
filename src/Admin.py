@@ -22,34 +22,48 @@ class Admin:
 
 
     def validar_user(self):
-        intentos = 4
+        intentos_user = 4
+        intentos_password = 4
         datos_correctos = False #bandera o flag
         self._user = input('Ingresá el nombre de usuario o correo: ')
         
-        while not datos_correctos and intentos > 0:
+        while not datos_correctos and intentos_user > 0:
             
             if self._user == 'admin' :
-                self._password = input('Ingresá la contraseña: ')
-                if self._password == '12345':
-                    datos_correctos = True
-                    print('------------------------------------------\nBienvenid@ al sistema de gestión de turnos\n--Ingresaste como usuario administrador--\n------------------------------------------')
-
-                else:
-                    intentos -= 1 #disminuye la cantidad a 3 intentos restantes
-                    print('------------------------------------\n--------Contraseña incorrecta-------\n--------Intentalo nuevamente--------\n------------------------------------')
-
-                    if intentos == 0: #si es cero, lo saca del sistema y lo devuelve al menú
-                        print('Demasiados intentos..\n       Acceso denegado..\n              ..Saliendo del menú...')
-                        break
-
-                    if intentos == 1:
-                        print(f'Te queda {intentos} restante.')
+                while intentos_password > 0:
+                    self._password = input('Ingresá la contraseña: ')
+                    if self._password == '12345':
+                        datos_correctos = True
+                        print('------------------------------------------\nBienvenid@ al sistema de gestión de turnos\n--Ingresaste como usuario administrador--\n------------------------------------------')
+                        break #sale del bucle
                     else:
-                        print(f'Te quedan {intentos} intentos restantes.')
+                        intentos_password -= 1 #disminuye la cantidad a 3 intentos restantes
+                        print('------------------------------------\n--------Contraseña incorrecta-------\n--------Intentalo nuevamente--------\n------------------------------------')
+
+                        if intentos_password == 0: #si es cero, lo saca del sistema y lo devuelve al menú
+                            print('Demasiados intentos..\n       Acceso denegado..\n              ..Saliendo del menú...')
+                            break
+
+                        if intentos_password == 1:
+                            print(f'Te queda {intentos_password} restante.')
+                        else:
+                            print(f'Te quedan {intentos_password} intentos restantes.')
     
             else:
-                print('------------------------------------\n---------Usuario incorrecto---------\n--------Intentalo nuevamente--------\n------------------------------------')
-                self._user = input('Ingrese el nombre de usuario: ')
+                intentos_user -=1
+                
+                if intentos_user == 0: #si es cero, lo saca del sistema y lo devuelve al menú
+                    print('\n---------------------------------\nDemasiados intentos..\n       Acceso denegado..\n              ..Saliendo del menú...')
+                    break
+                if intentos_user == 1:
+                    print(f'Te queda {intentos_user} intento restante.')
+                else:
+                    print('------------------------------------------------------------')
+                    print('Nombre de usuario o correo incorrecto. Intentalo nuevamente')
+                    print(f'Te quedan {intentos_user} intentos restantes.')
+                self._user = input('----------------------------------------------\nIngresá tu nombre de usuario o correo: ')
+
+
             
 admin = Admin('', '') #se instancia un objeto vacío de la clase para validar
 admin.validar_user() #se llama al método para validar el usuario
