@@ -83,31 +83,36 @@ class Cliente:
 
     def editarDatos(cliente):
         cliente.validar()
-        print('¿Los datos ingresados son correctos?\n----------------------------')
-
-        opcion = input('Ingresá 1 para guardar\nIngresá 2 para editar: ')
+        print('¿Los datos ingresados son correctos?')
+        print('----------------------------\nIngresá 1 para guardar\nIngresá 2 para editar\n----------------------------')
+        
+        opcion = input('Ingresá el número de la opción: ')
 
         bandera = False
 
         if opcion == 1 or opcion == '1':
             bandera = True
-            print('Los datos se guardaron satisfactoriamente')
+            print('------------------------------------\nLos datos se guardaron satisfactoriamente\n------------------------------------')
             cliente.mostrarDatos()
             # cliente.saludar()
 
         elif opcion == 2 or opcion == '2':
-            print(f'Ingresá 1 para editar el nombre ({cliente._nombre})\nIngresá 2 para editar el apellido ({cliente._apellido}): ')
-            opcion = input('¿Qué dato querés corregir?')
+            print(f'\n-------------------------------\nIngresá 1 para editar el nombre -> ({cliente._nombre})\nIngresá 2 para editar el apellido -> ({cliente._apellido}): ')
+            print('-------------------------------\n¿Qué dato querés corregir?')
+            opcion = input('Ingresá el número de la opción: ')
 
-            if opcion == '1':
-                cliente._nombre = input('Ingresá nuevamente el nombre: ')
-
-            elif opcion == '2':
-                cliente._apellido = input('Ingresá nuevamente el apellido: ')
-
-            else:
-                print('La opción ingresada NO es correcta.\nPor favor, intentalo nuevamente..')
-
+            if opcion == 1 or opcion == '1':
+                cliente._nombre = input('\n----------------------------\nIngresá nuevamente el nombre: ')
+                cliente.validar()
+                cliente.mostrarDatos()
+            
+            elif opcion == 2 or opcion == '2':
+                cliente._apellido = input('\n-------------------------------\nIngresá nuevamente el apellido: ')
+                cliente.validar()
+                cliente.mostrarDatos()
+        else:
+            print(f'\n----------------------------\nLa opción ingresada <{opcion}> NO es correcta.\nPor favor, intentalo nuevamente..')
+                
     def saludar(cliente):
         #cliente.validar()
         print(f'\n----------Hola, {cliente._nombre}----------')
