@@ -21,6 +21,8 @@ class Admin:
         self._password = password
 
 
+    print('\nElegiste la opción ingresar al sistema modo Administrador..\n---------------------------------------------------------')
+
     def validar_user(self):
         intentos_user = 4
         intentos_password = 4
@@ -34,29 +36,31 @@ class Admin:
                     self._password = input('Ingresá la contraseña: ')
                     if self._password == '12345':
                         datos_correctos = True
-                        print('------------------------------------------\nBienvenid@ al sistema de gestión de turnos\n--Ingresaste como usuario administrador--\n------------------------------------------')
+                        print('------------------------------------------\nBienvenid@ al sistema de gestión de turnos\n--Ingresaste como usuario Administrador--\n------------------------------------------')
                         break #sale del bucle
+                        #Derivarlo a las diferentes opciones de menú
+                        
                     else:
+                        print(f'------------------------------------\n--------Contraseña incorrecta-------\n               {self._password}\n------------------------------------')
                         intentos_password -= 1 #disminuye la cantidad a 3 intentos restantes
-                        print('------------------------------------\n--------Contraseña incorrecta-------\n--------Intentalo nuevamente--------\n------------------------------------')
-
                         if intentos_password == 0: #si es cero, lo saca del sistema y lo devuelve al menú
-                            print('Demasiados intentos..\n       Acceso denegado..\n              ..Saliendo del menú...')
+                            print('Agotaste los intentos..\n       Acceso denegado..\n                Saliendo del menú...')
                             break
-
                         if intentos_password == 1:
                             print(f'Te queda {intentos_password} restante.')
                         else:
+                            print('         Intentalo nuevamente           \n------------------------------------')
                             print(f'Te quedan {intentos_password} intentos restantes.')
-    
-            else:
+                break #sale de la ejecución, derivar al menú
+
+            else:           
                 intentos_user -=1
                 
                 if intentos_user == 0: #si es cero, lo saca del sistema y lo devuelve al menú
-                    print('\n---------------------------------\nDemasiados intentos..\n       Acceso denegado..\n              ..Saliendo del menú...')
+                    print('\n---------------------------------\nAgotaste todos los intentos..\n       Acceso denegado..\n              ..Saliendo del menú...')
                     break
                 if intentos_user == 1:
-                    print(f'Te queda {intentos_user} intento restante.')
+                    print(f'    Te queda {intentos_user} intento restante.')
                 else:
                     print('------------------------------------------------------------')
                     print('Nombre de usuario o correo incorrecto. Intentalo nuevamente')
