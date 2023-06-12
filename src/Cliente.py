@@ -77,11 +77,39 @@ class Cliente:
         print('Datos ingresados'.center(28,'-'))
         print("Nombre: ", cliente._nombre)
         print("Apellido: ", cliente._apellido)
-        print("Género: ", cliente.genero)
+        #print("Género: ", cliente.genero)
         print("----------------------------")
 
-    def saludar(cliente):
+
+    def editarDatos(cliente):
         cliente.validar()
+        print('¿Los datos ingresados son correctos?\n----------------------------')
+
+        opcion = input('Ingresá 1 para guardar\nIngresá 2 para editar: ')
+
+        bandera = False
+
+        if opcion == 1 or opcion == '1':
+            bandera = True
+            print('Los datos se guardaron satisfactoriamente')
+            cliente.mostrarDatos()
+            # cliente.saludar()
+
+        elif opcion == 2 or opcion == '2':
+            print(f'Ingresá 1 para editar el nombre ({cliente._nombre})\nIngresá 2 para editar el apellido ({cliente._apellido}): ')
+            opcion = input('¿Qué dato querés corregir?')
+
+            if opcion == '1':
+                cliente._nombre = input('Ingresá nuevamente el nombre: ')
+
+            elif opcion == '2':
+                cliente._apellido = input('Ingresá nuevamente el apellido: ')
+
+            else:
+                print('La opción ingresada NO es correcta.\nPor favor, intentalo nuevamente..')
+
+    def saludar(cliente):
+        #cliente.validar()
         print(f'\n----------Hola, {cliente._nombre}----------')
 
         opcion_valida = False #bandera, flag
@@ -162,6 +190,8 @@ cliente = Cliente("", "", "", "")
 #cliente.buscarCliente()
 #se llama al método para que se instancien los atributos
 cliente.clienteNuevo()#después se le muestra los datos
+cliente.validar()
+cliente.mostrarDatos() #Le mostramos los datos para que chequee si están correctos
+cliente.editarDatos()
 cliente.saludar() #primero se le dá la bienvenida
 #cliente.buscarCliente()
-cliente.mostrarDatos()
