@@ -77,11 +77,44 @@ class Cliente:
         print('Datos ingresados'.center(28,'-'))
         print("Nombre: ", cliente._nombre)
         print("Apellido: ", cliente._apellido)
-        print("Género: ", cliente.genero)
+        #print("Género: ", cliente.genero)
         print("----------------------------")
 
-    def saludar(cliente):
-        cliente.validar()
+
+    def editarDatos(cliente): #permite al cliente asegurarse de ingresar al sistema de turnos con sus datos correctos
+        datos_correctos = False #bandera para que el cliente pueda editar sus cambios hasta que sea True
+    
+        while not datos_correctos:
+            cliente.validar()
+            print('¿Los datos ingresados son correctos?')
+            print('----------------------------\nIngresá 1 para guardar\nIngresá 2 para editar\n----------------------------')
+        
+            opcion = int(input('Ingresá el número de la opción: '))
+
+            if opcion == 1: #ingresa satisfactoriamente al sistema
+                print('------------------------------------\nLos datos se guardaron satisfactoriamente\n------------------------------------')
+                cliente.mostrarDatos()
+                datos_correctos = True #recién cuando el ingrese la opción 1 es que se lo ingresa al sistema
+                
+            elif opcion == 2: #se le muestran las opciones para editar su nombre o su apellido las veces que necesite
+                print(f'\n-------------------------------\nIngresá 1 para editar el nombre -> ({cliente._nombre})\nIngresá 2 para editar el apellido -> ({cliente._apellido}): ')
+                print('-------------------------------\n¿Qué dato querés corregir?')
+                opcion = int(input('Ingresá el número de la opción: '))
+
+                if opcion == 1: #se setea el nombre con valor que coloque
+                    cliente._nombre = input('\n----------------------------\nIngresá nuevamente el nombre: ')
+                elif opcion == 2: #se setea el apellido con el valor que coloque
+                    cliente._apellido = input('\n-------------------------------\nIngresá nuevamente el apellido: ')
+                
+                cliente.validar() #no se le van a permitir ingresar campos en blanco, por eso se llama a la función validar
+                print('------------------------------------')
+                cliente.mostrarDatos() #se le vuelven a mostrar los datos para que verifique si están correctos después de los cambios
+
+
+
+
+    def saludar(cliente): # Dá un saludo personalizado al cliente dependiendo si es mujer, hombre o género no binario
+        #cliente.validar()
         print(f'\n----------Hola, {cliente._nombre}----------')
 
         opcion_valida = False #bandera, flag
@@ -160,8 +193,10 @@ class Cliente:
 # se instancia un objeto de la clase Cliente
 cliente = Cliente("", "", "", "")
 #cliente.buscarCliente()
-#se llama al método para que se instancien los atributos
-cliente.clienteNuevo()#después se le muestra los datos
+cliente.clienteNuevo() # Se llama al método para que se instancien los atributos
+##después se le muestra los datos
+#cliente.validar()
+cliente.mostrarDatos() #Le mostramos los datos para que chequee si están correctos
+cliente.editarDatos() #Le ofrecemos la opción de editar su nombre y apellido
 cliente.saludar() #primero se le dá la bienvenida
 #cliente.buscarCliente()
-cliente.mostrarDatos()
