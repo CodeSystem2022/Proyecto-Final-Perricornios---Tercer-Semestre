@@ -56,7 +56,7 @@ class Cliente:
     def validar(self):
         while not self.nombre.strip():
             print('\n----------------------------\nNombre no puede estar vacío.\nIntentalo nuevamente...\n----------------------------')
-            self._self = input("\nIngresá tu nombre: ")
+            self._nombre = input("\nIngresá tu nombre: ")
             
         while not self.apellido.strip():
             print('\n---------------------------\nApellido no puede estar vacío.\nIntentalo nuevamente...\n---------------------------')
