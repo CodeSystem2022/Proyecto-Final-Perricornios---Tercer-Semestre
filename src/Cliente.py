@@ -147,6 +147,12 @@ class Cliente:
     """
     CargarMasaje : deberá contar con un método propio que ejecute el método de la clase Masaje, masajes().
     """
+
+    def masajes():
+        masaje = Masaje()
+        masaje.masajes()
+
+        
     def buscarCliente(self):
         
         #Solicitamos el ID del cliente
