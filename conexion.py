@@ -38,7 +38,19 @@ class Conexion:
                 print(f'Ocurrió un error al obtener el cursor: {e}')
         else:
             return cls._cursor
+        
+    @classmethod
+    def realizarConsulta(cls):
+         with Conexion.obtenerConexion():
+            with Conexion.obtenerCursor() as cursor:
+                cursor.execute(cls._SELECCIONAR)
+                registros = cursor.fetchall()
+                return registros
+
 
 if __name__ == '__main__':
     Conexion.obtenerConexion()
     Conexion.obtenerCursor()
+    Conexion.realizarConsulta()
+
+    
