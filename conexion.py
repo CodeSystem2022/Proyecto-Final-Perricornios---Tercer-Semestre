@@ -1,46 +1,51 @@
-import psycopg2 as bd
-from logger_base import log
-import sys
+import psycopg2
 
-class Conexion:
-    _DATABASE = 'proyecto-final'
-    _USERNAME = 'postgres'
-    _PASSWORD = '1234'
-    _DB_PORT = '5432'
-    _HOST = 'localhost'
-    _conexion = None
-    _cursor = None
+class DatabaseConnection:
+    def __init__(self, host, port, database, user, password):
+        self.host = host
+        self.port = port
+        self.database = database
+        self.user = user
+        self.password = password
+        self.connection = None
 
+    def connect(self):
+        try:
+            self.connection = psycopg2.connect(
+                host=self.host,
+                port=self.port,
+                database=self.database,
+                user=self.user,
+                password=self.password
+            )
+            print("Conexión exitosa a la base de datos")
+        except (Exception, psycopg2.Error) as error:
+            print("Error al conectar a la base de datos:", error)
 
-    @classmethod
-    def obtenerConexion(cls):
-        if cls._conexion is None:
-            try:
-                cls._conexion = bd.connect(host=cls._HOST,
-                                           user=cls._USERNAME,
-                                           password=cls._PASSWORD,
-                                           port=cls._DB_PORT,
-                                           database=cls._DATABASE)
-                log.debug(f'Conexion Exitosa: {cls._conexion}')
-                return cls._conexion
-            except Exception as e:
-                log.error(f'Ocurrio un error: {e}')
-                sys.exit()
-        else:
-            return cls._conexion
-            
-    @classmethod
-    def obtenerCursor(cls):
-        if cls._cursor is None:
-            try:
-                cls._cursor = cls.obtenerConexion().cursor()
-                log.debug(f'Se abrio correcatamente el cursor: {cls._cursor}')
-                return cls._cursor
-            except Exception as e:
-                log.error(f'Ocurrio un error: {e}')
-        else:
-            return cls._cursor
-    
-if __name__ == '__main__':
-    Conexion.obtenerConexion()
-    Conexion.obtenerCursor()
+    def execute_query(self, query):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(query)
+            result = cursor.fetchall()
+            cursor.close()
+            return result
+        except (Exception, psycopg2.Error) as error:
+            print("Error al ejecutar la consulta:", error)
+
+    def close(self):
+        if self.connection:
+            self.connection.close()
+            print("Conexión cerrada")
+
+db = DatabaseConnection('localhost', '5432', 'tienda', 'perricornios', 'perricornios_pfinal')
+db.connect()
+
+query = 'SELECT * FROM Perri_Centro_Spa.Clientes'
+
+results = db.execute_query(query)
+
+if results is not None:
+    for row in results:
+        print(row)
+
+db.close()
