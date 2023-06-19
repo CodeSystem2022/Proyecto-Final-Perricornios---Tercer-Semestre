@@ -189,14 +189,14 @@ class Cliente:
         # Cerrar la conexión con la base de datos
         conn.close()
     
-
-# se instancia un objeto de la clase Cliente
-cliente = Cliente("", "", "", "")
-#cliente.buscarCliente()
-cliente.clienteNuevo() # Se llama al método para que se instancien los atributos
-##después se le muestra los datos
-#cliente.validar()
-cliente.mostrarDatos() #Le mostramos los datos para que chequee si están correctos
-cliente.editarDatos() #Le ofrecemos la opción de editar su nombre y apellido
-cliente.saludar() #primero se le dá la bienvenida
-#cliente.buscarCliente()
+if __name__ == "__main__":
+    # se instancia un objeto de la clase Cliente
+    cliente = Cliente("", "", "", "")
+    #cliente.buscarCliente()
+    cliente.clienteNuevo() # Se llama al método para que se instancien los atributos
+    ##después se le muestra los datos
+    #cliente.validar()
+    cliente.mostrarDatos() #Le mostramos los datos para que chequee si están correctos
+    cliente.editarDatos() #Le ofrecemos la opción de editar su nombre y apellido
+    cliente.saludar() #primero se le dá la bienvenida
+    #cliente.buscarCliente()
