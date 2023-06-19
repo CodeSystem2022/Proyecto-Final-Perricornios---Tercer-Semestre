@@ -205,7 +205,7 @@ class Cliente:
 
         # INSERT en la base de datos sin la ID
         cursor.execute(
-            "INSERT INTO Perri_Centro_Spa.clientes (nombre, genero, masaje) VALUES (%s, %s, %s) RETURNING id",
+            'INSERT INTO "Perri_Centro_Spa"."Clientes" ("Nombre", "Genero", "Masaje") VALUES (%s, %s, %s) RETURNING id',
             (self._nombre, self._genero, self._masaje)
         )
         id_cliente = cursor.fetchone()[0]
@@ -213,9 +213,10 @@ class Cliente:
         self._id_cliente = id_cliente
 
         # Mostrar mensaje de carga exitosa y el ID asignado al cliente
+        print("************")
         print("Carga de datos correcta.")
         print("ID asignado al cliente:", self._id_cliente)
-
+        print("************")
         # Cerrar la conexión con la base de datos
         conn.close()
     
