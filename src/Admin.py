@@ -1,7 +1,10 @@
+from menu_admin import Menu_Admin
+
 class Admin:
     def __init__(self, user, password):
         self._user = None
         self._password = None
+
 
     #Métodos getters y setters
     @property
@@ -32,7 +35,7 @@ class Admin:
             intentos_login -= 1
             if self._user == 'admin' and self._password == '12345':
                 datos_correctos = True
-                self.menu_admin()#se presenta el menu de opciones de administrador
+                Menu_Admin.menu_admin(self)#se presenta el menu de opciones de administrador
             elif intentos_login < 4 and intentos_login > 0:
                 print('Nombre de usuario o contraseña incorrecta. Intentalo nuevamente')
                 print(f'Te quedan {intentos_login} intentos restantes.')
@@ -40,23 +43,7 @@ class Admin:
                 self._password = input('----------------------------------------------\nIngresá la contraseña: ')
             else: print('\n---------------------------------\nAgotaste todos los intentos..\n       Acceso denegado...\n')
 
-
-    def menu_admin(self):#se presenta el menu de opciones de administrador
-        print('------------------------------------------\nBienvenid@ al sistema de gestión de turnos\n--Ingresaste como usuario Administrador--\n------------------------------------------')
-        print('Por favor digite la opcion a realizar:')
-        print('Operacion 1: Listar Turnos')        
-        print('Operacion 2: Eliminar Turnos')
-        print('Operacion 3: Consultar Clientes')
-        Operacion = int(input('Digite el numero de la opcion: '))
-        while Operacion < 1 or Operacion > 3:
-            if Operacion == 1:
-                admin.validar_user
-            elif Operacion == 2:
-                admin.validar_user
-            elif Operacion == 3:
-                admin.validar_user
-            else: print('Opcion incorrecta, por favor intente de nuevo')
-
             
 admin = Admin('', '') #se instancia un objeto vacío de la clase para validar
 admin.validar_user() #se llama al método para validar el usuario
+
