@@ -64,7 +64,7 @@ class Cliente:
             
     def clienteNuevo(self):
         #Solicito los datos
-        nombre = input("Ingresa tu nombre : ")
+        nombre = input("---------------------\nIngresa tu nombre : ")
         apellido = input("Ingresa tu apellido : ")
         #los establezco en su respectiva variable/atributo
         self._nombre = nombre

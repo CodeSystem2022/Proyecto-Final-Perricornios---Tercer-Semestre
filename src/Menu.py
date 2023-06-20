@@ -51,7 +51,7 @@ class Menu:
 
     def mostrar_menu(self):
         while True:
-            print("Bienvenido al sistema")
+            print("Bienvenido al sistema de masajes\n         Perricornios\n--------------------------------")
             print("Menú de opciones disponibles:")
             print("1. Cliente Nuevo")
             print("2. Cargar Cliente")
@@ -64,29 +64,25 @@ class Menu:
                 self.cliente.clienteNuevo()
                 self.cliente.editarDatos()
                 self.cliente.saludar()
-                self.cliente.cargarMasaje()
                 self.cliente.cargarCliente()
                 self.cliente.cargarTurno()
-
+                break
             elif self.opcion == "2":
                 self.cliente = Cliente("","","","")
                 self.cliente.buscarCliente()
                 self.cliente.saludo()
-                self.cliente.cargarMasaje()
-                self.cliente.actualizarCliente()
                 self.cliente.cargarTurno()
-
+                break
             elif self.opcion == "3": #Ingresa modo Administrador 
                 self.admin = Admin("","")
                 self.admin.validar_user()
                 self.admin.opcionesAdmin()
-
+                break
             elif self.opcion == "0":
                 print("¡Hasta luego!")
                 break
             else:
-                print("Opción inválida") 
-
-if __name__ == '__main__':
-    menu = Menu()
-    menu.mostrar_menu()
+                print("Opción no válida") 
+                
+menu = Menu()
+menu.mostrar_menu()

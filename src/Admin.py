@@ -21,18 +21,18 @@ class Admin:
         self._password = password
 
 
-    print('\nElegiste la opción ingresar al sistema modo Administrador..\n---------------------------------------------------------')
-
     def validar_user(self):
         intentos_user = 4
         intentos_password = 4
         datos_correctos = False #bandera o flag
+        print("-------------------------------------")
         self._user = input('Ingresá el nombre de usuario o correo: ')
         
         while not datos_correctos and intentos_user > 0:
             
             if self._user == 'admin' :
                 while intentos_password > 0:
+                    print("-------------------------------------")
                     self._password = input('Ingresá la contraseña: ')
                     if self._password == '12345':
                         datos_correctos = True
@@ -71,10 +71,10 @@ class Admin:
     @classmethod
     def opcionesAdmin(cls):
 
-        print("Menú de opciones Admin")
+        print("..Menú de opciones..\n---------------------------------")
         print("1. Para listar todos los turnos")
         print("2. Para eliminar todos los turnos de la tabla")
-        print("3. Consultar un cliente por ID")
+        print("3. Consultar un cliente por ID\n---------------------------------")
 
         opcion = int(input("Ingresá la opción que vas a realizar?: "))
 
@@ -84,7 +84,7 @@ class Admin:
 
         elif opcion == 2:
             print("Se borrarán todos los turnos asignados..")
-            print("Esta acción no se puede deshacer.\n¡Se borraran todos los datos de la tabla!")
+            print("Esta acción no se puede deshacer.\n------------------------------------------\n¡Se borraran todos los datos de la tabla!\n------------------------------------------")
             _SELECCIONAR = 'DROP * FROM "Perri_Centro_Spa"."Clientes"'
 
         elif opcion == 3:
