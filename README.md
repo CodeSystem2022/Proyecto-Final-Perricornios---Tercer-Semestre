@@ -18,12 +18,12 @@ Scrum Master *Bruno Leandro Cosimano Abadie*
 |  **04.2 - Creación de clase Admin** | *Noelia Romina Ruiz* | **Actividad Completada** | 
 |  **04.3 - Creación de Clase Conexion** | *Juan Ignacio Encinas* | **Actividad entregada fuera de tiempo, se requirio brindar codigo de referencia** | 
 
-#¿Como ejecutar el proyecto?
-1- Abre el proyecto con tu editor de codigo
-2- Inicia una terminal de comandos ubicada dentro de la carpeta principal del proyecto
-3- Con Docker Desktop corriendo, ejecuta el siguiente comando en la terminal *docker-compose up -d*
-4- Espera a que Docker inicie los contenedores y descarge las imagenes
-5- Ejecuta el archivo main.py ubicado en la carpeta principal del proyecto
+# ¿Como ejecutar el proyecto?
+- 1 - Abre el proyecto con tu editor de codigo
+- 2 - Inicia una terminal de comandos ubicada dentro de la carpeta principal del proyecto
+- 3 - Con Docker Desktop corriendo, ejecuta el siguiente comando en la terminal *docker-compose up -d*
+- 4 - Espera a que Docker inicie los contenedores y descarge las imagenes
+- 5 - Ejecuta el archivo main.py ubicado en la carpeta principal del proyecto
 
 ## Para tener en cuenta
 - Asegúrate de no estar ejecutando pgadmin ni postgresql al momento de lanzar el contenedor.
