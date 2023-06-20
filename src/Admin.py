@@ -66,8 +66,36 @@ class Admin:
                     print('Nombre de usuario o correo incorrecto. Intentalo nuevamente')
                     print(f'Te quedan {intentos_user} intentos restantes.')
                 self._user = input('----------------------------------------------\nIngresá tu nombre de usuario o correo: ')
+    
 
+    @classmethod
+    def opcionesAdmin(cls):
 
+        print("Menú de opciones Admin")
+        print("1. Para listar todos los turnos")
+        print("2. Para eliminar todos los turnos de la tabla")
+        print("3. Consultar un cliente por ID")
+
+        opcion = int(input("Ingresá la opción que vas a realizar?: "))
+
+        if opcion == 1:
+            print("Se listan todos los turnos asignados..")
+            _SELECCIONAR = 'SELECT * FROM "Perri_Centro_Spa"."Turnos"'
+
+        elif opcion == 2:
+            print("Se borrarán todos los turnos asignados..")
+            print("Esta acción no se puede deshacer.\n¡Se borraran todos los datos de la tabla!")
+            _SELECCIONAR = 'DROP * FROM "Perri_Centro_Spa"."Clientes"'
+
+        elif opcion == 3:
+            print("Se consulta por la lista de clientes en general")
+            _SELECCIONAR = 'SELECT * FROM "Perri_Centro_Spa"."Clientes"'
+        
+        else:
+            print('Opción no valida')
             
-admin = Admin('', '') #se instancia un objeto vacío de la clase para validar
-admin.validar_user() #se llama al método para validar el usuario
+
+if __name__ == '__main__':      
+    admin = Admin('', '') #se instancia un objeto vacío de la clase para validar
+    admin.validar_user() #se llama al método para validar el usuario
+    admin.opcionesAdmin()

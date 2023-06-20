@@ -25,6 +25,15 @@ OP 2 Cargar Cliente
 - ejecutar la funcion del cliente : cargarMasaje()
 - ejecutar la funcion del cliente : actualizarCliente()
 - ejecutar la funcion del cliente : cargarTurno()
+
+OP 3
+Debera comprobar si el usuario es administrador utilizando la clase admin
+Debera desplegar distintas operaciones para el administrador
+Operacion 1 : Listar Turnos
+Operacion 2 : Eliminar Turnos
+Operacion 3 : Consultar Clientes
+
+
 """
 
 
@@ -32,10 +41,12 @@ OP 2 Cargar Cliente
 
 
 from Cliente import Cliente
+from Admin import Admin
 
 class Menu:
     def __init__(self):
         self.cliente = None
+        self.admin = None
         self.opcion = None
 
     def mostrar_menu(self):
@@ -44,24 +55,31 @@ class Menu:
             print("Menú de opciones disponibles:")
             print("1. Cliente Nuevo")
             print("2. Cargar Cliente")
+            print("3. Modo Administrador")
             print("0. Salir")
             self.opcion = input("Ingrese la opción deseada: ")
     
-            if self.opcion == "1":
-                self.cliente = Cliente()
+            if self.opcion == "1": #Ingresa modo Cliente
+                self.cliente = Cliente("","","","")
                 self.cliente.clienteNuevo()
-                self.cliente.saludo()
+                self.cliente.editarDatos()
+                self.cliente.saludar()
                 self.cliente.cargarMasaje()
                 self.cliente.cargarCliente()
                 self.cliente.cargarTurno()
 
             elif self.opcion == "2":
-                self.cliente = Cliente()
+                self.cliente = Cliente("","","","")
                 self.cliente.buscarCliente()
                 self.cliente.saludo()
                 self.cliente.cargarMasaje()
                 self.cliente.actualizarCliente()
                 self.cliente.cargarTurno()
+
+            elif self.opcion == "3": #Ingresa modo Administrador 
+                self.admin = Admin("","")
+                self.admin.validar_user()
+                self.admin.opcionesAdmin()
 
             elif self.opcion == "0":
                 print("¡Hasta luego!")
@@ -69,6 +87,6 @@ class Menu:
             else:
                 print("Opción inválida") 
 
-
-menu = Menu()
-menu.mostrar_menu()
+if __name__ == '__main__':
+    menu = Menu()
+    menu.mostrar_menu()
