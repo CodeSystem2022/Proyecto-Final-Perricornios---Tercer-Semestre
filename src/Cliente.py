@@ -152,6 +152,96 @@ class Cliente:
         masaje = Masaje()
         masaje.masajes()
 
+
+    def cargarTurno(self):
+        # Establecer conexión con la base de datos
+        conn = psycopg2.connect(
+            user="perricornios",
+            password="perricornios_pfinal",
+            host="localhost",
+            port="5432",
+            database="tienda",
+        )
+
+        turno_valido = False  # <---Bandera
+        mes = 0
+        dia = 0
+        print("Ingresá el mes de tu turno:(1 al 12)")
+        mes = int(input())
+        print("Ingresá el dia de tu turno(1 al 31)")
+        dia = int(input())
+
+        while not turno_valido:
+            def horarios(numeroTurno, turno, mes, dia):
+                print(
+                    "Ingresá el turno en qué querés atenderte:\nPodes elegir 'M' -> para el turno mañana o\n'T' -> para el turno tarde")
+                turno = input()[0].lower()
+
+                if turno == 'm':
+                    print(
+                        "Elegiste el turno MAÑANA, tenes tres opciones para atenderte..\nIngresá 1 para el primer turno\nIngresá 2 para el segundo turno\nIngresá 3 para el tercer turno")
+                    numeroTurno = int(input())
+
+                    if numeroTurno == 1:
+                        print("Felicitaciones, tenés el " + str(numeroTurno) + "° turno el día: "+str(dia)+" del mes: "+str(mes))
+                    elif numeroTurno == 2:
+                        print("Felicitaciones, tenés el " + str(numeroTurno) + "° turno el día: "+str(dia)+" del mes: "+str(mes))
+                    elif numeroTurno == 3:
+                        print("Felicitaciones, tenés el " + str(numeroTurno) + "° turno el día: "+str(dia)+" del mes: "+str(mes))
+
+                elif turno == 't':
+                    print(
+                        "Elegiste el turno TARDE,tenés tres opciones para atenderte..\nIngresá 4 para el primer turno\nIngresá 5 para el segundo turno\nIngresá 6 para el tercer turno")
+                    numeroTurno = int(input())
+
+                    if numeroTurno == 4:
+                        print("------------------------------------------------------------------------------")
+                        print("Felicitaciones, tenés el " + str(numeroTurno) + "° turno el día: " + str(dia)+" del mes: "+ str(mes))
+                        print("------------------------------------------------------------------------------")
+                    elif numeroTurno == 5:
+                        print("------------------------------------------------------------------------------")
+                        print("Felicitaciones, tenés el " + str(numeroTurno) + "° turno el día: " + str(dia)+" del mes: " + str(mes))
+                        print("------------------------------------------------------------------------------")
+                    elif numeroTurno == 6:
+                        print("------------------------------------------------------------------------------")
+                        print("Felicitaciones, tenés el " + str(numeroTurno) + "° turno el día: " + str(dia)+" del mes: "+ str(mes))
+                        print("------------------------------------------------------------------------------")
+                    else:
+                        print(
+                            "ERROR! Ingresaste mal la opción, no se pudo elegir turno.\nIntentalo nuevamente en unos minutos..")
+
+            numeroTurno = 0
+            turno = ''
+
+            horarios(numeroTurno, turno)
+
+            # Crear un cursor para ejecutar consultas
+            cursor = conn.cursor()
+
+            #Consulta para verificar si el turno está ocupado
+            columna_turno = f"turno{numeroTurno}"
+            cursor.execute(f"SELECT {columna_turno} FROM Perri_Centro_Spa.turnos WHERE dia=%s AND mes=%s",
+                           (dia, mes))
+            resultado = cursor.fetchone()
+
+            if resultado and resultado[0] is not None:
+                print("El turno seleccionado está ocupado. Por favor, elija otro turno.")
+            else:
+                # Realizar la asignación del turno en la base de datos
+                id_cliente = self._id_cliente
+
+            if id_cliente:
+                cursor.execute(f"UPDATE Perri_Centro_Spa.turnos SET {columna_turno}=%s WHERE dia=%s AND mes=%s",
+                               (id_cliente, dia, mes))
+                conn.commit()
+                print("Carga exitosa de turno.")
+                turno_valido = True
+            else:
+                print("Cliente no encontrado. Intente nuevamente.")
+
+            # Cerrar la conexión con la base de datos
+            conn.close()
+
         
     def buscarCliente(self):
         
