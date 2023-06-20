@@ -10,7 +10,7 @@ Mismo proyecto de tienda de estética que teníamos en pSeInt
 |  **03 - Creacion de la Clase Cliente** | *Noelia Romina Ruiz* | **Actividad Completada** | 
 |  **03.1 - Clase Cliente - Funciones** | *Noelia Romina Ruiz* | **Actividad Completada** | 
 |  **03.2 - Clase Cliente - Funciones** | *Bruno Leandro Cosimano Abadie* | **Actividad Completada** |
-|  **03.3 - Clase Cliente - Funciones** | *Braian Guzmán Echarri* | **Actividad entregada fuera de tiempo, se requirio brindar codigo de referencia** |
+|  **03.3 - Clase Cliente - Funciones** | *Braian Guzmán Echarri* | **Actividad Completada, se requirio brindar codigo de referencia** |
 |  **03.4 - Clase Cliente - Funciones** | *Carlos Fernando Villalón* | **Actividad Completada, se requirio brindar codigo de referencia** |
 |  **04 - Clase Menu** | *Nadia Soledad Pereyra* | **Actividad Completada** |
 |  **04.1 - Clase Menu** | *Facundo Benjamín Méndez* | **Actividad entregada fuera de tiempo** |
