@@ -3,7 +3,7 @@ Mismo proyecto de tienda de estética que teníamos en pSeInt
 
 # Tablero de Actividades
 Scrum Master *Bruno Leandro Cosimano Abadie*
-| **Actividad** | **Asignado a** | **Anotaciones** |  |  | 
+| **Actividad** | **Asignado a** | **Anotaciones** | **Requirió Correcciones** |  | 
 | ---- | ---- | --- | --- | --- | 
 |  **00 - Implementación de Docker y Estructura de Proyecto** | *Bruno Leandro Cosimano Abadie* | **Actividad Completada** |
 |  **01 - Creación de la Base de Datos y sus tablas** | *Gabriel Juan Alejandro Juhasz* | **Actividad Completada** |
