@@ -194,4 +194,34 @@ class Cliente:
         
         # Cerrar la conexión con la base de datos
         conn.close()
+
+    def cargarCliente(self):
+        # Establecemos conexión con la base de datos
+        conn = psycopg2.connect(
+            user="perricornios",
+            password="perricornios_pfinal",
+            host="localhost",
+            port="5432",
+            database="tienda"
+        )
+
+        # Cursor para ejecutar consultas
+        cursor = conn.cursor()
+
+        # INSERT en la base de datos sin la ID
+        cursor.execute(
+            'INSERT INTO "Perri_Centro_Spa"."Clientes" ("Nombre", "Genero", "Masaje") VALUES (%s, %s, %s) RETURNING id',
+            (self._nombre, self._genero, self._masaje)
+        )
+        id_cliente = cursor.fetchone()[0]
+        conn.commit()
+        self._id_cliente = id_cliente
+
+        # Mostrar mensaje de carga exitosa y el ID asignado al cliente
+        print("************")
+        print("Carga de datos correcta.")
+        print("ID asignado al cliente:", self._id_cliente)
+        print("************")
+        # Cerrar la conexión con la base de datos
+        conn.close()
     
