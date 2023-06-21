@@ -39,18 +39,14 @@ class Conexion:
         else:
             return cls._cursor
         
-    @classmethod
-    def realizarConsulta(cls):
+
+    def realizarConsulta(sql):
          with Conexion.obtenerConexion():
             with Conexion.obtenerCursor() as cursor:
-                cursor.execute(cls._SELECCIONAR)
+                cursor.execute(sql)
                 registros = cursor.fetchall()
-                return registros
+                print(registros)
 
 
-if __name__ == '__main__':
-    Conexion.obtenerConexion()
-    Conexion.obtenerCursor()
-    Conexion.realizarConsulta()
 
     

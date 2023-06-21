@@ -40,8 +40,8 @@ Operacion 3 : Consultar Clientes
 #      Ejemplo de clase menu :
 
 
-from Cliente import Cliente
-from Admin import Admin
+from src.Cliente import Cliente
+from src.Admin import Admin
 
 class Menu:
     def __init__(self):
@@ -62,15 +62,18 @@ class Menu:
             if self.opcion == "1": #Ingresa modo Cliente
                 self.cliente = Cliente("","","","")
                 self.cliente.clienteNuevo()
+                self.cliente.validar()
+                self.cliente.mostrarDatos()
                 self.cliente.editarDatos()
                 self.cliente.saludar()
+                self.cliente.masajes()
                 self.cliente.cargarCliente()
                 self.cliente.cargarTurno()
                 break
             elif self.opcion == "2":
                 self.cliente = Cliente("","","","")
                 self.cliente.buscarCliente()
-                self.cliente.saludo()
+                self.cliente.mostrarDatos()
                 self.cliente.cargarTurno()
                 break
             elif self.opcion == "3": #Ingresa modo Administrador 
@@ -84,5 +87,4 @@ class Menu:
             else:
                 print("Opción no válida") 
                 
-menu = Menu()
-menu.mostrar_menu()
+

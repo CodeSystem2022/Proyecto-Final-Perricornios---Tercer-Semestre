@@ -1,3 +1,4 @@
+from src.conexion import Conexion
 class Admin:
     def __init__(self, user, password):
         self._user = None
@@ -80,7 +81,11 @@ class Admin:
 
         if opcion == 1:
             print("Se listan todos los turnos asignados..")
-            _SELECCIONAR = 'SELECT * FROM "Perri_Centro_Spa"."Turnos"'
+            sql = 'SELECT * FROM "Perri_Centro_Spa"."Turnos"'
+            conn = Conexion()
+            conn.realizarConsulta(sql)
+            
+            
 
         elif opcion == 2:
             print("Se borrarán todos los turnos asignados..")
