@@ -2,19 +2,20 @@
 Mismo proyecto de tienda de estética que teníamos en pSeInt
 
 # Tablero de Actividades
-Scrum Master *Bruno Leandro Cosimano Abadie*
-| **Actividad** | **Asignado a** | **Anotaciones** | **Requirió Correcciones** |  | 
+#Scrum Master *Bruno Leandro Cosimano Abadie*
+
+| **Actividad** | **Asignado a** | **Anotaciones** | **Requirió Correcciones** | **Corregido Por** | 
 | ---- | ---- | --- | --- | --- | 
-|  **00 - Implementación de Docker y Estructura de Proyecto** | *Bruno Leandro Cosimano Abadie* | **Actividad Completada** |
-|  **01 - Creación de la Base de Datos y sus tablas** | *Gabriel Juan Alejandro Juhasz* | **Actividad Completada** |
+|  **00 - Implementación de Docker y Estructura de Proyecto** | *Bruno Leandro Cosimano Abadie* | **Actividad Completada** | 
+|  **01 - Creación de la Base de Datos y sus tablas** | *Gabriel Juan Alejandro Juhasz* | **Actividad Completada** | 
 |  **02 - Creación de la Clase Masaje** | *Noelia Romina Ruiz* | **Actividad Completada** | 
 |  **03 - Creacion de la Clase Cliente** | *Noelia Romina Ruiz* | **Actividad Completada** | 
 |  **03.1 - Clase Cliente - Funciones** | *Noelia Romina Ruiz* | **Actividad Completada** | 
-|  **03.2 - Clase Cliente - Funciones** | *Bruno Leandro Cosimano Abadie* | **Actividad Completada** |
-|  **03.3 - Clase Cliente - Funciones** | *Braian Guzmán Echarri* | **Actividad Completada, se requirió  brindar codigo de referencia** |
+|  **03.2 - Clase Cliente - Funciones** | *Bruno Leandro Cosimano Abadie* | **Actividad Completada** | 
+|  **03.3 - Clase Cliente - Funciones** | *Braian Guzmán Echarri* | **Actividad Completada, se requirió  brindar codigo de referencia** | 
 |  **03.4 - Clase Cliente - Funciones** | *Carlos Fernando Villalón* | **Actividad Completada, se requirió  brindar codigo de referencia** |
-|  **04 - Clase Menu** | *Nadia Soledad Pereyra* | **Actividad Completada** |
-|  **04.1 - Clase Menu** | *Facundo Benjamín Méndez* | **Actividad entregada fuera de tiempo** |
+|  **04 - Clase Menu** | *Nadia Soledad Pereyra* | **Actividad Completada** | 
+|  **04.1 - Clase Menu** | *Facundo Benjamín Méndez* | **Actividad entregada fuera de tiempo, el codigo no cumplio con lo requerido** | **Si** | *Noelia Romina Ruiz* | 
 |  **04.2 - Creación de clase Admin** | *Noelia Romina Ruiz* | **Actividad Completada** | 
 |  **04.3 - Creación de Clase Conexion** | *Juan Ignacio Encinas* | **Actividad entregada fuera de tiempo, se requirió  brindar codigo de referencia** | 
 
