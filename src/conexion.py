@@ -19,7 +19,7 @@ class Conexion:
                                            password=cls._PASSWORD,
                                            port=cls._DB_PORT,
                                            database=cls._DATABASE)
-                print(f'Conexión exitosa: {cls._conexion}')
+                print(f'Conexión exitosa!!')
                 return cls._conexion
             except Exception as e:
                 print(f'Ocurrió un error al conectarse: {e}')
@@ -39,14 +39,6 @@ class Conexion:
         else:
             return cls._cursor
         
-
-    def realizarConsulta(sql):
-         with Conexion.obtenerConexion():
-            with Conexion.obtenerCursor() as cursor:
-                cursor.execute(sql)
-                registros = cursor.fetchall()
-                print(registros)
-
 
 
     

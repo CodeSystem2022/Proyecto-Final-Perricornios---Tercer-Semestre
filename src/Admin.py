@@ -81,20 +81,68 @@ class Admin:
 
         if opcion == 1:
             print("Se listan todos los turnos asignados..")
-            sql = 'SELECT * FROM "Perri_Centro_Spa"."Turnos"'
+            sql = '''SELECT 	turnos.id,
+		turnos."Dia",
+		turnos."Mes",
+		CASE
+			WHEN turnos."Turno1" IS NOT NULL THEN (SELECT "Nombre" FROM "Perri_Centro_Spa"."Clientes" WHERE "Clientes".id = CAST(turnos."Turno1" AS INTEGER))
+		END AS Turno1,
+		CASE
+			WHEN turnos."Turno2" IS NOT NULL THEN (SELECT "Nombre" FROM "Perri_Centro_Spa"."Clientes" WHERE "Clientes".id = CAST(turnos."Turno2" AS INTEGER))
+		END AS Turno2,
+		CASE
+			WHEN turnos."Turno3" IS NOT NULL THEN (SELECT "Nombre" FROM "Perri_Centro_Spa"."Clientes" WHERE "Clientes".id = CAST(turnos."Turno3" AS INTEGER))
+		END AS Turno3,
+		CASE
+			WHEN turnos."Turno4" IS NOT NULL THEN (SELECT "Nombre" FROM "Perri_Centro_Spa"."Clientes" WHERE "Clientes".id = CAST(turnos."Turno4" AS INTEGER))
+		END AS Turno4,
+		CASE
+			WHEN turnos."Turno5" IS NOT NULL THEN (SELECT "Nombre" FROM "Perri_Centro_Spa"."Clientes" WHERE "Clientes".id = CAST(turnos."Turno5" AS INTEGER))
+		END AS Turno5,
+		CASE
+			WHEN turnos."Turno6" IS NOT NULL THEN (SELECT "Nombre" FROM "Perri_Centro_Spa"."Clientes" WHERE "Clientes".id = CAST(turnos."Turno6" AS INTEGER))
+		END AS Turno6
+		
+FROM "Perri_Centro_Spa"."Turnos" AS turnos'''
             conn = Conexion()
-            conn.realizarConsulta(sql)
+            conn.obtenerConexion()
+            cursor = conn.obtenerCursor()
+            cursor.execute(sql)
+            resultados = cursor.fetchall()
+            print("|ID|DIA|MES|Turno1|Turno2|Turno3|Turno4|Turno5|Turno6")
+            for turno in resultados:
+                print(turno)
             
             
 
         elif opcion == 2:
-            print("Se borrarán todos los turnos asignados..")
-            print("Esta acción no se puede deshacer.\n------------------------------------------\n¡Se borraran todos los datos de la tabla!\n------------------------------------------")
-            _SELECCIONAR = 'DROP * FROM "Perri_Centro_Spa"."Clientes"'
+            try:
+                print("Se borrarán todos los contenidos de la Base de datos..")
+                print("Esta acción no se puede deshacer.\n------------------------------------------\n¡Se borraran todos los datos de la tabla!\n------------------------------------------")
+                ##sql = 'DELETE FROM "Perri_Centro_Spa"."Clientes"'
+                sql = 'DELETE FROM "Perri_Centro_Spa"."Turnos"'
+                conn = Conexion()
+                conn.obtenerConexion()
+                cursor = conn.obtenerCursor()
+                cursor.execute(sql)
+                
+                ##cursor.execute(_ELIMINAR)
+                cursor.close()
+            except (Exception) as error:
+                print("error")
+
 
         elif opcion == 3:
             print("Se consulta por la lista de clientes en general")
             _SELECCIONAR = 'SELECT * FROM "Perri_Centro_Spa"."Clientes"'
+            conn = Conexion()
+            conn.obtenerConexion()
+            cursor = conn.obtenerCursor()
+            cursor.execute(_SELECCIONAR)
+            resultados = cursor.fetchall()
+            print("|ID Cliente| Genero | Tipo de Masaje|")
+            for turno in resultados:
+                print(turno)
         
         else:
             print('Opción no valida')
