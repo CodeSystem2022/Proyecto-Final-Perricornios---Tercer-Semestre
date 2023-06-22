@@ -25,6 +25,7 @@ Mismo proyecto de tienda de estética que teníamos en pSeInt
 - 3 - Con Docker Desktop corriendo, ejecuta el siguiente comando en la terminal *docker-compose up -d*
 - 4 - Espera a que Docker inicie los contenedores y descarge las imagenes
 - 5 - Ejecuta el archivo main.py ubicado en la carpeta principal del proyecto
+- 6 - Al momento de seleccionar Dia y Mes para la atencion solo elegir Mes = 6 y Dia= 1-31
 
 ## Para tener en cuenta
 - Asegúrate de no estar ejecutando pgadmin ni postgresql al momento de lanzar el contenedor.
