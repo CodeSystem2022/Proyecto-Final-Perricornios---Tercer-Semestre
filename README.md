@@ -26,6 +26,7 @@ Mismo proyecto de tienda de estética que teníamos en pSeInt
 - 4 - Espera a que Docker inicie los contenedores y descarge las imagenes
 - 5 - Ejecuta el archivo main.py ubicado en la carpeta principal del proyecto
 - 6 - Al momento de seleccionar Dia y Mes para la atencion solo elegir Mes = 6 y Dia= 1-31
+- 7 - La funcion eliminar turnos, elimina los registros de la db !! no utilizar!!
 
 ## Para tener en cuenta
 - Asegúrate de no estar ejecutando pgadmin ni postgresql al momento de lanzar el contenedor.
